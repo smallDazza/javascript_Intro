@@ -1,5 +1,9 @@
 console.log("Start of the Dice Roller !!")
-
+/**
+ * JSDoc Comment - Simple Dice roller function
+ * @param {number} diceSize 
+ * @returns the dice numbered side.
+ */
 function rollDice(diceSize = 6) {
     console.log(`Rolling a ${diceSize} -sided die....`);
     let diceSide = Math.ceil(Math.random() * diceSize);
@@ -30,8 +34,12 @@ console.log(`The side you rolled on the 15 side die is: ${diceSide15} !`)
 const rollDice8 = () => rollDice(8);
 console.log("The side you rolled for the 8 sided die is: " + rollDice8())
 
-
-// Callback function ( calling a function within a function):
+/**
+ * Callback function ( calling a function within a function):
+ * @param {*} side 
+ * @param {*} callback 
+ * @returns 
+ */
 function customDiceRoll(side, callback) {
     return callback(side); // rollDice(30)
 }
