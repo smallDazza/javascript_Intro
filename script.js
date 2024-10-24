@@ -1,3 +1,18 @@
+//difference in using var or let:
+function test() {
+    if (true){
+        var x = 5
+    }
+    console.log(x) // 5:  var used and called inside the function.
+
+    if (true){
+        let y = 5
+        const z = 6
+    }
+    console.log(y) 
+    console.log(z) // both undefined: because let & const can only be used and called inside the block (not outside).
+};
+test()
 
 console.log("Hello World !!")
 
