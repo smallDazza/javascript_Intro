@@ -41,11 +41,11 @@ function renderData() {
         costumesContainerList.appendChild(newCostumeEntry);
     
         // Add the element to the container
-        costumesContainerList.appendChild(removeButton);
+        newCostumeEntry.appendChild(removeButton);
 
-        // Add the container to the HTML Page
-        costumesContainer.appendChild(costumesContainerList);
     });
+    // Add the container to the HTML Page
+    costumesContainer.appendChild(costumesContainerList);
 }
 
 
@@ -54,3 +54,26 @@ function removeCostumeFromDataList (targetItemToRemove) {
     renderData();
 }
 
+function addCostumeToDataList(event, targetInputId) {
+    // Prevent the form from doing its default behaviour (refreshing the page)
+    event.preventDefault();
+    console.log("Add costume to the list function is running!");
+
+    // Find the input text field based on targetInputId
+    let targetTextInput = document.getElementById(targetInputId);
+
+    // Get the value from the field
+    console.log(targetTextInput.value);
+    // Append or push to the dataArray
+    dataArray.push(targetTextInput.value);
+
+    // Clear out the input field text
+    targetTextInput.value = "";
+    
+    // renderData function call to update the page
+    renderData();
+}
+
+// Find the form from the event
+let formInputButton = document.getElementById("costumesInputForm");
+formInputButton.addEventListener("click", (event) => addCostumeToDataList(event, "costumeInputText"));
