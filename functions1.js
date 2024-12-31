@@ -25,7 +25,11 @@ console.log(sum(2,4,6,8,10))
 
 //BUT same thing using rest operator & reduce method;
 // Rest operator (same as spread BUT in functions):
-function sum2(...args){
-    return args.reduce((a,b) => a + b );
+function sum2(...items){
+    if (items.length === 1 && Array.isArray(items[0]))
+        items = [...items[0]];
+    return items.reduce((a,b) => a + b );
 }
 console.log(sum2(1,10,20,30,40));
+console.log(sum2([1,10,20,30,40]));
+
